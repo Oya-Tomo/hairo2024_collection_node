@@ -29,7 +29,16 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(collection_node collection_node.cpp)
+add_executable(collection_node
+        collection_node.cpp
+        features/connection/connection.cpp
+        features/connection/format.cpp
+        features/collector/collector.cpp
+        features/arm/arm.cpp
+        features/arm/ik.cpp
+        )
+
+add_subdirectory(lib/sclp)
 
 pico_set_program_name(collection_node "collection_node")
 pico_set_program_version(collection_node "0.1")
@@ -39,7 +48,10 @@ pico_enable_stdio_usb(collection_node 1)
 
 # Add the standard library to the build
 target_link_libraries(collection_node
-        pico_stdlib)
+        pico_i2c_slave
+        pico_stdlib
+        sclp
+        )
 
 # Add the standard include files to the build
 target_include_directories(collection_node PRIVATE
@@ -53,6 +65,7 @@ target_link_libraries(collection_node
         hardware_spi
         hardware_i2c
         hardware_dma
+        hardware_pwm
         hardware_pio
         hardware_interp
         hardware_timer
