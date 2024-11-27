@@ -45,6 +45,7 @@ target_link_libraries(collection_node
 target_include_directories(collection_node PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
   ${CMAKE_CURRENT_LIST_DIR}/.. # for our common lwipopts or any other standard includes, if required
+  ${CMAKE_CURRENT_LIST_DIR}/lib
 )
 
 # Add any user requested libraries
