@@ -3,14 +3,8 @@
 #include "hardware/i2c.h"
 #include "pico/i2c_slave.h"
 #include "pico/stdlib.h"
-#include "./format.h"
 
-typedef struct
-{
-    uint8_t mem[256];
-    uint8_t mem_address;
-    bool mem_address_written;
-} i2c_context_t;
+#include "features/connection/context.h"
 
 static void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event);
 
