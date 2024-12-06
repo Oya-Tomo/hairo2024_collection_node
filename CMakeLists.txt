@@ -30,7 +30,7 @@ pico_sdk_init()
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(collection_node
-        collection_node.cpp
+        main.cpp
         features/connection/connection.cpp
         features/connection/context.cpp
         features/collector/collector.cpp
