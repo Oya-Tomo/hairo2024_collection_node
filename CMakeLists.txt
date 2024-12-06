@@ -35,7 +35,6 @@ add_executable(collection_node
         features/connection/format.cpp
         features/collector/collector.cpp
         features/arm/arm.cpp
-        features/arm/ik.cpp
         )
 
 add_subdirectory(lib/sclp)
