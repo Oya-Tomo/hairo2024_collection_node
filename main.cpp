@@ -2,6 +2,7 @@
 #include "pico/stdlib.h"
 
 #include "features/connection/connection.h"
+#include "features/arm/arm.h"
 #include "features/ticker/ticker.h"
 
 void setup()
@@ -9,11 +10,16 @@ void setup()
     stdio_init_all();
 
     connection_setup();
+    arm_setup();
 }
 
 void tasks()
 {
-    connection_task();
+    system_state_t system_state = get_system_state();
+    if (system_state.is_running)
+    {
+        arm_task();
+    }
 }
 
 int main()
