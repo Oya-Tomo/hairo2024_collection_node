@@ -32,7 +32,7 @@ pico_sdk_init()
 add_executable(collection_node
         collection_node.cpp
         features/connection/connection.cpp
-        features/connection/format.cpp
+        features/connection/context.cpp
         features/collector/collector.cpp
         features/arm/arm.cpp
         )
