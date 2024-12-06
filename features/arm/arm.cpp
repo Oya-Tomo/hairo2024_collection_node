@@ -89,6 +89,10 @@ void arm_setup()
     hand_grip_motor.configure(hand_grip_motor_config);
     hand_grip_qei.configure(hand_grip_qei_config);
 
+    gpio_init(GRIP_LIMIT_SW_PIN);
+    gpio_set_dir(GRIP_LIMIT_SW_PIN, GPIO_IN);
+    gpio_pull_up(GRIP_LIMIT_SW_PIN);
+
     base_servo.configure(base_servo_config);
     mid_servo.configure(mid_servo_config);
     tip_servo.configure(tip_servo_config);
