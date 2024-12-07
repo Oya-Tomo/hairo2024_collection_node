@@ -102,8 +102,8 @@ void arm_task()
 {
     arm_state_t arm_state = get_arm_state();
 
-    set_turn_table_angle(arm_state.turn_table_angle);
-    set_hand_grip_move(arm_state.hand_grip_dir);
+    set_turn_table_angle(arm_state.rotate);
+    set_hand_grip_move(arm_state.gripper_speed);
     set_joint_angle(arm_state.base_angle, arm_state.mid_angle, arm_state.tip_angle);
 }
 

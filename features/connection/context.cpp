@@ -15,8 +15,8 @@ arm_state_t convert_to_arm_state(uint8_t *data)
     state.base_angle = (double)((int8_t)data[BASE_ANGLE_BYTE]) * M_PI / 128.0;
     state.mid_angle = (double)((int8_t)data[MID_ANGLE_BYTE]) * M_PI / 128.0;
     state.tip_angle = (double)((int8_t)data[TIP_ANGLE_BYTE]) * M_PI / 128.0;
-    state.turn_table_angle = (double)((int8_t)data[TURN_TABLE_ANGLE_BYTE]) * M_PI / 128.0;
-    state.hand_grip_dir = (double)((int8_t)data[HAND_GRIP_DIR_BYTE]) / 128.0;
+    state.rotate = (double)((int8_t)data[ROTATE_BYTE]) * M_PI / 128.0;
+    state.gripper_speed = (double)((int8_t)data[GRIPPER_SPEED_BYTE]) / 128.0;
     return state;
 }
 

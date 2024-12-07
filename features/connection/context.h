@@ -18,8 +18,8 @@ const uint8_t IS_RUNNING_BYTE = 0x00;
 const uint8_t BASE_ANGLE_BYTE = 0x00;
 const uint8_t MID_ANGLE_BYTE = 0x01;
 const uint8_t TIP_ANGLE_BYTE = 0x02;
-const uint8_t TURN_TABLE_ANGLE_BYTE = 0x03;
-const uint8_t HAND_GRIP_DIR_BYTE = 0x04;
+const uint8_t ROTATE_BYTE = 0x03;
+const uint8_t GRIPPER_SPEED_BYTE = 0x04;
 
 typedef struct
 {
@@ -31,8 +31,8 @@ typedef struct
     float base_angle;
     float mid_angle;
     float tip_angle;
-    float turn_table_angle;
-    float hand_grip_dir;
+    float rotate;
+    float gripper_speed;
 } arm_state_t;
 
 typedef struct
