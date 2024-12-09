@@ -23,5 +23,7 @@ arm_state_t convert_to_arm_state(uint8_t *data)
 collector_state_t convert_to_collector_state(uint8_t *data)
 {
     collector_state_t state;
+    state.belt_speed = (double)((int8_t)data[BELT_SPEED_BYTE]) / 128.0;
+    state.angle = (double)((int8_t)data[COLLECTOR_ANGLE_BYTE]) * (M_PI / 4) / 128.0;
     return state;
 }

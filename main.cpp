@@ -3,6 +3,7 @@
 
 #include "features/connection/connection.h"
 #include "features/arm/arm.h"
+#include "features/collector/collector.h"
 #include "features/ticker/ticker.h"
 
 void setup()
@@ -11,6 +12,7 @@ void setup()
 
     connection_setup();
     arm_setup();
+    collector_setup();
 }
 
 void tasks()
@@ -19,6 +21,7 @@ void tasks()
     if (system_state.is_running)
     {
         arm_task();
+        collector_task();
     }
 }
 

@@ -15,11 +15,14 @@ typedef struct
 
 const uint8_t IS_RUNNING_BYTE = 0x00;
 
-const uint8_t BASE_ANGLE_BYTE = 0x00;
-const uint8_t MID_ANGLE_BYTE = 0x01;
-const uint8_t TIP_ANGLE_BYTE = 0x02;
-const uint8_t ROTATE_BYTE = 0x03;
-const uint8_t GRIPPER_SPEED_BYTE = 0x04;
+const uint8_t BASE_ANGLE_BYTE = 0x01;
+const uint8_t MID_ANGLE_BYTE = 0x02;
+const uint8_t TIP_ANGLE_BYTE = 0x03;
+const uint8_t ROTATE_BYTE = 0x04;
+const uint8_t GRIPPER_SPEED_BYTE = 0x05;
+
+const uint8_t BELT_SPEED_BYTE = 0x06;
+const uint8_t COLLECTOR_ANGLE_BYTE = 0x07;
 
 typedef struct
 {
@@ -37,7 +40,8 @@ typedef struct
 
 typedef struct
 {
-
+    float belt_speed;
+    float angle;
 } collector_state_t;
 
 system_state_t convert_to_system_state(uint8_t *data);
