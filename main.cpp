@@ -6,6 +6,8 @@
 #include "features/collector/collector.h"
 #include "features/ticker/ticker.h"
 
+#define DEBUG
+
 void irq_callback_register(uint gpio, uint32_t events)
 {
     arm_callback_register(gpio, events);
@@ -31,6 +33,14 @@ void tasks()
         arm_task();
         collector_task();
     }
+
+#ifdef DEBUG
+    arm_state_t arm_state = get_arm_state();
+    collector_state_t collector_state = get_collector_state();
+
+    stdio_printf("arm: %f %f %f %f %f | ", arm_state.base_angle, arm_state.mid_angle, arm_state.tip_angle, arm_state.rotate, arm_state.gripper_speed);
+    stdio_printf("collector: %f %f \n", collector_state.belt_speed, collector_state.angle);
+#endif
 }
 
 int main()
