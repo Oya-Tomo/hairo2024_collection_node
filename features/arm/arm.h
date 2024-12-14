@@ -4,6 +4,8 @@
 
 #include "sclp/sclp.h"
 
+void arm_callback_register(uint gpio, uint32_t events);
+
 void arm_setup();
 
 void arm_task();

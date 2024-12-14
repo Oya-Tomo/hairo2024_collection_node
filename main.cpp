@@ -6,6 +6,11 @@
 #include "features/collector/collector.h"
 #include "features/ticker/ticker.h"
 
+void irq_callback_register(uint gpio, uint32_t events)
+{
+    arm_callback_register(gpio, events);
+}
+
 void setup()
 {
     stdio_init_all();
@@ -13,6 +18,9 @@ void setup()
     connection_setup();
     arm_setup();
     collector_setup();
+
+    gpio_set_irq_callback(irq_callback_register);
+    irq_set_enabled(IO_IRQ_BANK0, true);
 }
 
 void tasks()
