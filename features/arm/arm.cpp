@@ -121,7 +121,7 @@ void set_turn_table_angle(float angle)
 
 void set_hand_grip_move(float dir)
 {
-    const float MAX_GRIP_ROTATE_RADIAN = M_PI * 8.0;
+    const float MAX_GRIP_ROTATE_RADIAN = M_PI * 2.0 * 10.0;
 
     bool limit_sw = gpio_get(GRIP_LIMIT_SW_PIN) == 0;
     if (limit_sw)
