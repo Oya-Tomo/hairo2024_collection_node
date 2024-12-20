@@ -154,6 +154,6 @@ void set_joint_angle(float base_angle, float mid_angle, float tip_angle)
     float tip_angle_diff = tip_angle - mid_angle;
 
     base_servo.set_angle(base_angle_diff);
-    mid_servo.set_angle(mid_angle_diff);
-    tip_servo.set_angle(tip_angle_diff);
+    mid_servo.set_angle(mid_angle_diff * -1);
+    tip_servo.set_angle(tip_angle_diff * -1);
 }
