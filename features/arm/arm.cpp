@@ -1,6 +1,7 @@
 #include "features/arm/arm.h"
 #include "features/connection/connection.h"
 #include "features/ticker/ticker.h"
+#include "utils/utils.h"
 
 #include <cmath>
 #include "arm.h"
@@ -153,7 +154,7 @@ void set_joint_angle(float base_angle, float mid_angle, float tip_angle)
     float mid_angle_diff = mid_angle - base_angle;
     float tip_angle_diff = tip_angle - mid_angle;
 
-    base_servo.set_angle(base_angle_diff);
-    mid_servo.set_angle(mid_angle_diff * -1);
-    tip_servo.set_angle(tip_angle_diff * -1);
+    base_servo.set_angle(guard(base_angle_diff, -M_PI / 2.0, M_PI / 4.0 * 3.0));
+    mid_servo.set_angle(-1.0 * guard(mid_angle_diff, -M_PI * 3.0 / 4.0, M_PI * 3.0 / 4.0));
+    tip_servo.set_angle(-1.0 * guard(tip_angle_diff, -M_PI / 2.0, M_PI / 2.0));
 }
