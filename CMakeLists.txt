@@ -36,6 +36,7 @@ add_executable(collection_node
         features/collector/collector.cpp
         features/arm/arm.cpp
         features/ticker/ticker.cpp
+        utils/utils.cpp
         )
 
 add_subdirectory(lib/sclp)
